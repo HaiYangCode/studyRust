@@ -74,3 +74,20 @@ rustc main.rs # 运行简单的rust程序
 
 #### use 作用
 导入非预导入的标准库
+
+#### 如何导入第三方库？
+在`Cargo.toml`中的dependencies后面添加如下
+```shell
+rand = "0.8.5" # 库名+版本号
+```
+
+#### 用match表达式替换expect
+```rust
+
+        // let guess: u32 = guess.trim().parse().expect("please type a number");
+        let guess: u32 = match guess.trim().parse()//这里的match很关键
+        {
+            Ok(num) => num,
+            Err(_) => continue,
+        };
+```
