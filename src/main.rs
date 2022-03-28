@@ -3,12 +3,18 @@ use std::io;
 use rand::Rng;// use 导入非标准库
 
 fn main() {
+    part4()
+}
+
+fn part4() {
+    let x = String::from("Hello");
+    let s2 = x.clone();
+    println!("s2 = {} , x ={}", s2, x);
+}
+
+fn game() {
     println!("Guess the number!");
-
-
-
     let secret_number = rand::thread_rng().gen_range(0..101);
-
 
     loop {
         println!("Please input your guess.");
@@ -28,6 +34,7 @@ fn main() {
             Ordering::Greater => println!("Greater"),
             Ordering::Equal => {
                 println!("Equal");
+                println!("You are win,value is :{}", &secret_number);
                 break;
             }
         }
